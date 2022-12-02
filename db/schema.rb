@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2022_12_01_221043) do
   enable_extension "plpgsql"
 
   create_table "instruments", force: :cascade do |t|
-    t.string "brand"
-    t.string "type"
+    t.string "name"
+    t.string "category"
     t.boolean "used"
     t.boolean "needs_repair"
     t.integer "price"
