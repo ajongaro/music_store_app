@@ -10,9 +10,9 @@ RSpec.describe 'the store index page', type: :feature do
   describe 'as a visitor' do
     describe "when I visit '/stores'" do
       it 'shows the name of each store in the system' do
-        store = Store.create!(name: "Guitar Center", online_only: false, max_inventory: 999, rating: 5)
-        store_2 = Store.create!(name: "Dave's Music Shop", online_only: false, max_inventory: 100, rating: 4)
-        store_3 = Store.create!(name: "Pete's Grand Piano Emporium", online_only: true, max_inventory: 20, rating: 2)
+        store = Store.create!(name: "Guitar Center", online_only: false, max_inventory: 999, customer_rating: 5)
+        store_2 = Store.create!(name: "Dave's Music Shop", online_only: false, max_inventory: 100, customer_rating: 4)
+        store_3 = Store.create!(name: "Pete's Grand Piano Emporium", online_only: true, max_inventory: 20, customer_rating: 2)
         
         visit '/stores/'
 
