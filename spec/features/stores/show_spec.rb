@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the stores show page', type: :feature do
-  # For each parent table
-  # As a visitor
-  # When I visit '/parents'
-  # Then I see the name of each parent record in the system
   describe 'as a visitor' do
     describe "when I visit '/stores/:id'" do
       it 'I see that store name and its attributes' do
