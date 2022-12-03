@@ -1,0 +1,10 @@
+<h1>Instruments at <%= @store.name %></h1>
+
+<% @instruments.each do |instrument| %>
+  <h3><%= instrument.name %></h3>
+  <ul>
+    <li>Used: <%= instrument.used %></li>
+    <li>Needs Repair: <%= instrument.needs_repair %></li>
+    <li>Price: $<%= instrument.price %></li>
+  </ul>
+<% end %>
