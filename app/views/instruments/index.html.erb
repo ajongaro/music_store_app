@@ -1,0 +1,10 @@
+<h1>Instruments List</h1>
+
+<% @instruments.each do |instrument| %>
+  <b><%= instrument.name %></b>
+  <ul>
+    <li>Used: <%= instrument.used %></li>
+    <li>Needs Repair: <%= instrument.needs_repair %></li>
+    <li>Price: <%= instrument.price %></li>
+  </ul>
+<% end %>
