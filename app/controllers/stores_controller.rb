@@ -5,5 +5,6 @@ class StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])  
+    @instruments = Instrument.where(store_id: params[:id])
   end
 end
