@@ -36,13 +36,5 @@ RSpec.describe 'the stores index page', type: :feature do
       end
     end
     
-    describe "when I visit '/stores' again" do
-      #US11
-      it "has a link to create a new Store record, 'New Parent'" do
-        visit '/stores/'
-
-        expect(page).to have_link("New Store")
-      end
-    end
   end
 end
