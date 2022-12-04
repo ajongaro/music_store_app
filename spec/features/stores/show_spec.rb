@@ -31,6 +31,17 @@ RSpec.describe 'the stores show page', type: :feature do
         visit "/stores/#{store_2.id}"
         expect(page).to have_content("Instruments in Stock: 0")
       end
+
+      it "has a link to '/store/:id/instruments' for that store" do
+        visit "/stores/#{store.id}"
+        expect(page).to have_link("Instruments for Sale")
+        expect(page).to have_link("Instruments for Sale")
+
+        # save_and_open_page
+
+        visit "/stores/#{store_2.id}"
+        expect(page).to have_link("Instruments for Sale")
+      end
     end
   end
 end
