@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MusicStoreApp</title>
+    <title>MusicStoreApp - Your Instrument Shopping Resource</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <p>
+      <a href="/stores/">All Stores</a>
+      <a href="/instruments/">All Instruments</a>
+    </p>
     <%= yield %>
   </body>
 </html>
