@@ -30,8 +30,18 @@ RSpec.describe 'the stores index page', type: :feature do
       
       it 'displays time created next to store name' do
         visit '/stores/'
+
         expect(page).to have_content(store.created_at)
         expect(page).to have_content(store_2.created_at)
+      end
+    end
+    
+    describe "when I visit '/stores' again" do
+      #US11
+      it "has a link to create a new Store record, 'New Parent'" do
+        visit '/stores/'
+
+        expect(page).to have_link("New Store")
       end
     end
   end
