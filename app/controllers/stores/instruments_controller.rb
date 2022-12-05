@@ -9,13 +9,14 @@ class  Stores::InstrumentsController < ApplicationController
   end
 
   def create
-    instrument = Instrument.create!(instrument_params)
-    redirect_to "/stores/#{instrument.store_id}/instruments/"
+    store = Store.find(params[:id])
+    store.instruments.create!(instrument_params)
+    redirect_to "/stores/#{store.id}/instruments/"
   end
   
   private
   def instrument_params
-    params.permit(:name, :used, :needs_repair, :price, :store_id)
+    params.permit(:name, :used, :needs_repair, :price)
   end
 end
 

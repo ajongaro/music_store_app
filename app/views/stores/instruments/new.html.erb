@@ -1,7 +1,6 @@
 <h1>Create Instrument for <%= @store.name %></h1>
 
 <%= form_with url: "/stores/#{@store.id}/instruments", method: :post, local: true do |form| %>
-  <%= form.hidden_field :store_id, value: @store.id %> 
   <%= form.label :name  %><br>
   <%= form.text_field :name %><br>
   <%= form.label :used %><br>
