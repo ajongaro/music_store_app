@@ -35,6 +35,5 @@ RSpec.describe 'the stores index page', type: :feature do
         expect(page).to have_content(store_2.created_at)
       end
     end
-    
   end
 end

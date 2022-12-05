@@ -22,20 +22,16 @@ RSpec.describe "Update Store" do
         expect(page).to have_field("Customer rating") 
       end
       
-      # When I fill out the form with updated information
-      # And I click the button to submit the form
-      # Then a `PATCH` request is sent to '/parents/:id',
-      # the parent's info is updated,
-      # and I am redirected to the Parent's Show page where I see the parent's updated info 
-      it "takes new information and can click button to submit form" do
+      it "takes new information and can update a stores" do
         visit "/stores/#{store.id}/edit"
-
+        #us12
         fill_in("Name", with: "Schmuitar Schmenter")
         fill_in("Online only", with: false)
         fill_in("Max inventory", with: 2987)
         fill_in("Customer rating", with: 4)
+
         click_button("Update Store")
-        save_and_open_page
+
         expect(page).to have_content("Schmuitar Schmenter")
         expect(page).to have_content(store.online_only)
       end

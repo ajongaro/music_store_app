@@ -27,7 +27,7 @@ RSpec.describe 'Create A New Store', type: :feature do
           fill_in("customer_rating", with: 5 )
           
           click_button("Create Store")
-          # save_and_open_page
+
           expect(current_path).to eq("/stores/")
           expect(page).to have_content("Davie's Special Guitar Boutique")
         end

@@ -15,7 +15,6 @@ RSpec.describe 'the instrument show page', type: :feature do
 
         visit "/instruments/#{piano.id}"
 
-        # save_and_open_page
         expect(page).to have_content("Steinway Grand Piano")
         expect(page).to have_content("Used: false")
         expect(page).to have_content("Needs Repair: false")

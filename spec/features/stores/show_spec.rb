@@ -15,7 +15,6 @@ RSpec.describe 'the stores show page', type: :feature do
       it 'shows that store name and its attributes' do
         visit "/stores/#{store.id}"
 
-        # save_and_open_page
         expect(page).to have_content(store.name)
         expect(page).to_not have_content(store_2.name)
         expect(page).to have_content("Online Only: false")
@@ -26,7 +25,6 @@ RSpec.describe 'the stores show page', type: :feature do
       it 'shows a count of instruments at that store' do
         visit "/stores/#{store.id}"
         expect(page).to have_content("Instruments in Stock: 3")
-        # save_and_open_page
 
         visit "/stores/#{store_2.id}"
         expect(page).to have_content("Instruments in Stock: 0")
@@ -36,8 +34,6 @@ RSpec.describe 'the stores show page', type: :feature do
         visit "/stores/#{store.id}"
         expect(page).to have_link("Instruments for Sale")
         expect(page).to have_link("Instruments for Sale")
-
-        # save_and_open_page
 
         visit "/stores/#{store_2.id}"
         expect(page).to have_link("Instruments for Sale")
