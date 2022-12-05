@@ -3,3 +3,5 @@
 <p>Used: <%= @instrument.used %></p>
 <p>Needs Repair: <%= @instrument.needs_repair %></p>
 <p>Price: $<%= @instrument.price %></p>
+
+<%= link_to "Update Instrument", "/instruments/#{@instrument.id}/edit" %>

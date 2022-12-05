@@ -22,6 +22,27 @@ RSpec.describe 'the instrument show page', type: :feature do
 
         expect(page).to_not have_content("Gibson Dot Guitar")
       end
+
+      it 'has a link to update that instrument' do
+        visit "/instruments/#{piano.id}"
+                
+        expect(page).to have_link("Update Instrument")
+      end
+
+      it 'takes me to /instruments/:id/edit when I click it' do
+        visit "/instruments/#{piano.id}"
+        click_link("Update Instrument")
+
+        expect(current_path).to eq("/instruments/#{piano.id}/edit")
+      end
+
+      it 'has a form that can be filled and submitted' do
+        visit "/instruments/#{piano.id}/edit"
+        fill_in("Name", with: "Schteinway Frand Ipano")
+        click_link("Update Instrument")
+
+        expect(current_path).to eq("/instruments/#{piano.id}/edit")
+      end
     end
   end
 end
