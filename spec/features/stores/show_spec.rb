@@ -42,6 +42,23 @@ RSpec.describe 'the stores show page', type: :feature do
         visit "/stores/#{store_2.id}"
         expect(page).to have_link("Instruments for Sale")
       end
+
+      # Then I see a link to update the parent "Update Parent"
+      # When I click the link "Update Parent"
+      # Then I am taken to '/parents/:id/edit'
+      it "has a link to update the parent called 'Update Store'" do
+        #us12
+        visit "/stores/#{store.id}"
+
+        expect(page).to have_link("Update Store")
+      end
+      
+      it "goes to /stores/:id/edit when the link is clicked" do
+        visit "/stores/#{store.id}"
+
+        click_link("Update Store")
+        expect(current_path).to eq("/stores/#{store.id}/edit")
+      end
     end
   end
 end

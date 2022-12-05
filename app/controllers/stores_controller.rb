@@ -9,12 +9,22 @@ class StoresController < ApplicationController
   end
 
   def create
-    store = Store.create!(
-      name: params[:name],
-      online_only: params[:online_only],
-      max_inventory: params[:max_inventory],
-      customer_rating: params[:customer_rating]
-    )
+    store = Store.create!(store_params)
     redirect_to "/stores/"
+  end
+
+  def edit
+    @store = Store.find(params[:id])
+  end
+
+  def update
+    store = Store.find(params[:id])
+    store.update(store_params)
+    redirect_to "/stores/#{store.id}/"
+  end
+
+  private 
+  def store_params
+    params.permit(:name, :online_only, :max_inventory, :customer_rating)
   end
 end
