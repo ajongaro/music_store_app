@@ -3,3 +3,5 @@ Home > Stores
 <% @stores.each do |store| %>
   <p><%= store.name %>, Created at: <%= store.created_at %></p>
 <% end %>
+
+<%= link_to "New Store", "/stores/new" %>

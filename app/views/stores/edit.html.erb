@@ -1,0 +1,13 @@
+<h1>Edit <%= @store.name %></h1>
+
+<%= form_with url: "/stores/#{@store.id}/", method: :patch, local: true do |form| %>
+  <%= form.label :name  %><br>
+  <%= form.text_field :name %><br>
+  <%= form.label :online_only %><br>
+  <%= form.text_field :online_only %><br>
+  <%= form.label :max_inventory %><br>
+  <%= form.text_field :max_inventory %><br>
+  <%= form.label :customer_rating %><br>
+  <%= form.text_field :customer_rating %><br>
+  <%= form.submit "Update Store" %><br>
+<% end %>
