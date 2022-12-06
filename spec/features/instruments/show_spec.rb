@@ -31,7 +31,8 @@ RSpec.describe 'the instrument show page', type: :feature do
 
       it 'takes me to /instruments/:id/edit when I click it' do
         visit "/instruments/#{piano.id}"
-        click_link("Update Instrument")
+
+        click_link "Update Instrument"
 
         expect(current_path).to eq("/instruments/#{piano.id}/edit")
       end
@@ -39,9 +40,14 @@ RSpec.describe 'the instrument show page', type: :feature do
       it 'has a form that can be filled and submitted' do
         visit "/instruments/#{piano.id}/edit"
         fill_in("Name", with: "Schteinway Frand Ipano")
-        click_link("Update Instrument")
+        fill_in("Used", with: true)
+        fill_in("Needs repair", with: false)
+        fill_in("Price", with: 84999)
+        click_button("Update Instrument")
 
-        expect(current_path).to eq("/instruments/#{piano.id}/edit")
+        expect(current_path).to eq("/instruments/#{piano.id}/")
+        expect(page).to have_content("Schteinway Frand Ipano")
+        expect(page).to have_content("Price: $84999")
       end
     end
   end

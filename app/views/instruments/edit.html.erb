@@ -1,0 +1,14 @@
+
+<h1>Edit <%= @instrument.name %></h1>
+
+<%= form_with url: "/instruments/#{@instrument.id}/", method: :patch, local: true do |form| %>
+  <%= form.label :name  %><br>
+  <%= form.text_field :name %><br>
+  <%= form.label :used %><br>
+  <%= form.text_field :used %><br>
+  <%= form.label :needs_repair %><br>
+  <%= form.text_field :needs_repair %><br>
+  <%= form.label :price %><br>
+  <%= form.text_field :price %><br>
+  <%= form.submit "Update Instrument" %><br>
+<% end %>
