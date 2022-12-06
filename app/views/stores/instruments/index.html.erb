@@ -11,3 +11,10 @@ Home > Stores > Instruments
 <% end %>
 <%= link_to "Alpha Sort", "/stores/#{@store.id}/instruments?alpha_sort=true" %>
 <%= link_to "Create Instrument", "/stores/#{@store.id}/instruments/new" %>
+
+<%= form_with url: "/stores/#{@store.id}/instruments?filter_price=true", method: :get, local: true do |form| %>
+  Only show instruments priced higher than: 
+  <%= form.label :minimum_price %>
+  <%= form.number_field :minimum_price %>
+  <%= form.submit "Filter Results" %><br>
+<% end %>
