@@ -9,5 +9,5 @@ Home > Stores > Instruments
     <li>Price: $<%= instrument.price %></li>
   </ul>
 <% end %>
-
+<%= link_to "Alpha Sort", "/stores/#{@store.id}/instruments?alpha_sort=true" %>
 <%= link_to "Create Instrument", "/stores/#{@store.id}/instruments/new" %>

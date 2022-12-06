@@ -34,6 +34,20 @@ RSpec.describe 'the stores index page', type: :feature do
         expect(page).to have_content(store.created_at)
         expect(page).to have_content(store_2.created_at)
       end
+
+      it 'has a link to edit that stores information' do
+        visit '/stores/' 
+
+        expect(page).to have_link("Edit Store", href: "/stores/#{store.id}/edit")
+      end
+      
+      it 'has a link that upon clicking redirects to stores edit page' do
+        visit '/stores/' 
+
+        click_link("Edit Store", href: "/stores/#{store.id}/edit")
+        
+        expect(current_path).to eq("/stores/#{store.id}/edit")
+      end
     end
   end
 end
