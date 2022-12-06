@@ -30,6 +30,19 @@ RSpec.describe 'the instrument index page', type: :feature do
         expect(page).to_not have_content("Fender Banjo")
       end
       
+      it 'has a link to edit that instruments information' do
+        visit '/instruments/' 
+
+        expect(page).to have_link("Edit Instrument", href: "/instruments/#{guitar.id}/edit")
+      end
+      
+      it 'has a link that upon clicking redirects to instrument edit page' do
+        visit '/instruments/' 
+
+        click_link("Edit Instrument", href: "/instruments/#{keytar.id}/edit")
+        
+        expect(current_path).to eq("/instruments/#{keytar.id}/edit")
+      end
     end
   end
 end

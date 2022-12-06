@@ -41,7 +41,7 @@ RSpec.describe 'the stores index page', type: :feature do
         expect(page).to have_link("Edit Store", href: "/stores/#{store.id}/edit")
       end
       
-      it 'has a link that upon clicking redirects to parent edit page' do
+      it 'has a link that upon clicking redirects to stores edit page' do
         visit '/stores/' 
 
         click_link("Edit Store", href: "/stores/#{store.id}/edit")
