@@ -69,7 +69,7 @@ RSpec.describe ' stores index page', type: :feature do
         visit "/stores/#{store.id}/instruments"
         
         click_link("Alpha Sort")
-        save_and_open_page 
+
         expect("Bosendorfer Grand Piano").to appear_before("Fender Banjo")
         expect("Gibson Dot Guitar").to appear_before("Steinway Grand Piano")
         expect("Bosendorfer Grand Piano").to appear_before("Fender Banjo")
