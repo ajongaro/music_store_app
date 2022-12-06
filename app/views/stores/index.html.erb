@@ -1,7 +1,8 @@
 <h1>Stores Index</h1>
 Home > Stores
 <% @stores.each do |store| %>
-  <p><b><%= store.name %></b> | Created at: <%= store.created_at %> | <%= link_to "Edit Store", "/stores/#{store.id}/edit" %></p>
+  <p><b><%= store.name %></b> | Created at: <%= store.created_at %> | <%= link_to "Edit Store", "/stores/#{store.id}/edit" %>
+  | <%= link_to "Delete Store", "/stores/#{store.id}", method: :delete %></p>
 <% end %>
 
 <%= link_to "New Store", "/stores/new" %>
