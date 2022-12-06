@@ -6,6 +6,8 @@ Home > Stores > Show Store
   <li>Instruments in Stock: <%= @instruments.count %></li>
   <li>Max Inventory: <%= @store.max_inventory %></li>
   <li>Customer Rating: <%= @store.customer_rating %>/5</li>
+  <li><%= link_to  "Update Store", "/stores/#{@store.id}/edit" %></li>
+  <li><%= link_to  "Delete Store", "/stores/#{@store.id}/", method: :delete %></li>
 </ul>
 <p><%= link_to "Instruments for Sale", "/stores/#{@store.id}/instruments" %></p>
-<p><%= link_to  "Update Store", "/stores/#{@store.id}/edit" %></p>
+<%# <p><%= link_to  "Update Store", "/stores/#{@store.id}/edit" %></p> %>

@@ -39,9 +39,6 @@ RSpec.describe 'the stores show page', type: :feature do
         expect(page).to have_link("Instruments for Sale")
       end
 
-      # Then I see a link to update the parent "Update Parent"
-      # When I click the link "Update Parent"
-      # Then I am taken to '/parents/:id/edit'
       it "has a link to update the parent called 'Update Store'" do
         #us12
         visit "/stores/#{store.id}"
@@ -54,6 +51,23 @@ RSpec.describe 'the stores show page', type: :feature do
 
         click_link("Update Store")
         expect(current_path).to eq("/stores/#{store.id}/edit")
+      end
+      
+      it "has a link to 'Delete Store'" do
+        visit "/stores/#{store_3.id}"
+
+        expect(page).to have_link("Delete Store")
+      end
+
+      it "removes an existing entry when delete store is clicked" do
+        visit "/stores/"
+        expect(page).to have_content("Pete's Grand Piano Emporium")
+
+        visit "/stores/#{store_3.id}"
+
+        click_link("Delete Store")
+        expect(current_path).to eq("/stores")
+        expect(page).to_not have_content("Pete's Grand Piano Emporium")
       end
     end
   end

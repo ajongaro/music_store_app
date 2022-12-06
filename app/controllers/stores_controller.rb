@@ -13,6 +13,12 @@ class StoresController < ApplicationController
     redirect_to "/stores/"
   end
 
+  def destroy
+    @store = Store.find(params[:id])
+    @store.destroy
+    redirect_to "/stores"
+  end
+
   def edit
     @store = Store.find(params[:id])
   end
