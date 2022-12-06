@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/stores/:id/instruments', to: 'stores/instruments#index'
   get '/stores/:id/instruments/new', to: 'stores/instruments#new'
+  get '/stores/:id/instruments/sort', to: 'stores/instruments#index'
   post '/stores/:id/instruments', to: 'stores/instruments#create'
   
   get '/instruments/', to: 'instruments#index'

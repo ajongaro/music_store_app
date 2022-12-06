@@ -42,7 +42,7 @@ RSpec.describe 'creating a new instrument' do
       
       click_button("Create Instrument")
 
-      expect(current_path).to eq("/stores/#{store.id}/instruments/")
+      expect(current_path).to eq("/stores/#{store.id}/instruments")
       expect(page).to have_content("Fender Double Bass")
     end
   end

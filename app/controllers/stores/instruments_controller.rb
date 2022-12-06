@@ -1,7 +1,12 @@
 class  Stores::InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.where(store_id: params[:id])
     @store = Store.find(params[:id])
+
+    if params[:alpha_sort]
+      @instruments = Instrument.alpha_sort
+    else
+      @instruments = Instrument.where(store_id: params[:id])
+    end
   end
 
   def new
@@ -11,7 +16,7 @@ class  Stores::InstrumentsController < ApplicationController
   def create
     store = Store.find(params[:id])
     store.instruments.create!(instrument_params)
-    redirect_to "/stores/#{store.id}/instruments/"
+    redirect_to "/stores/#{store.id}/instruments"
   end
   
   private

@@ -24,7 +24,7 @@ RSpec.describe 'the instrument show page', type: :feature do
       end
 
       it 'has a link to update that instrument' do
-        visit "/instruments/#{piano.id}"
+        visit "/instruments/#{piano.id}/"
                 
         expect(page).to have_link("Update Instrument")
       end
