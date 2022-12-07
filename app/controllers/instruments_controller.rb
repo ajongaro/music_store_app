@@ -1,6 +1,5 @@
 class InstrumentsController < ApplicationController
   def index
-    # @instruments = Instrument.all
     @instruments = Instrument.where(used: true)
   end
 

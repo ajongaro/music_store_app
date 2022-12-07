@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.order(created_at: :asc)
+    # Could abstract this to model
+    @stores = Store.created_order
   end
 
   def show

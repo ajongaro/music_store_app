@@ -2,13 +2,9 @@ class  Stores::InstrumentsController < ApplicationController
   def index
     @store = Store.find(params[:id])
 
-    if params[:alpha_sort]
-      @instruments = Instrument.alpha_sort
-    elsif params[:minimum_price]
-      @instruments = Instrument.filter_price(params[:minimum_price])
-    else
-      @instruments = Instrument.where(store_id: params[:id])
-    end
+    return @instruments = Instrument.alpha_sort if params[:alpha_sort]
+    return @instruments = Instrument.filter_price(params[:minimum_price]) if params[:minimum_price]
+    @instruments = Instrument.where(store_id: params[:id])
   end
 
   def new
