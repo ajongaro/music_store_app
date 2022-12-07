@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/stores', to: 'stores#index'
-  post '/stores/', to: 'stores#create'
+  post '/stores', to: 'stores#create'
   get '/stores/new', to: 'stores#new'
 
   get '/stores/:id', to: 'stores#show'
-  patch '/stores/:id/', to: 'stores#update'
+  patch '/stores/:id', to: 'stores#update'
+  delete '/stores/:id', to: 'stores#delete'
   get '/stores/:id/edit', to: 'stores#edit'
 
   get '/stores/:id/instruments', to: 'stores/instruments#index'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   
   get '/instruments/', to: 'instruments#index'
   get '/instruments/:id', to: 'instruments#show'
+  delete '/instruments/:id', to: 'instruments#delete'
   patch '/instruments/:id', to: 'instruments#update'
   get '/instruments/:id/edit', to: 'instruments#edit'
 end

@@ -4,6 +4,8 @@ class  Stores::InstrumentsController < ApplicationController
 
     if params[:alpha_sort]
       @instruments = Instrument.alpha_sort
+    elsif params[:minimum_price]
+      @instruments = Instrument.filter_price(params[:minimum_price])
     else
       @instruments = Instrument.where(store_id: params[:id])
     end

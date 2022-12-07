@@ -1,11 +1,12 @@
 <h1><%= @store.name %></h1>
 Home > Stores > Show Store
 
+<p><%= link_to "Instruments for Sale", "/stores/#{@store.id}/instruments" %></p>
 <ul>
+  <li><%= link_to  "Update Store", "/stores/#{@store.id}/edit" %></li>
+  <li><%= link_to  "Delete Store", "/stores/#{@store.id}/", method: :delete %></li>
   <li>Online Only: <%= @store.online_only %></li>
   <li>Instruments in Stock: <%= @instruments.count %></li>
   <li>Max Inventory: <%= @store.max_inventory %></li>
   <li>Customer Rating: <%= @store.customer_rating %>/5</li>
 </ul>
-<p><%= link_to "Instruments for Sale", "/stores/#{@store.id}/instruments" %></p>
-<p><%= link_to  "Update Store", "/stores/#{@store.id}/edit" %></p>

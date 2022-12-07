@@ -48,6 +48,23 @@ RSpec.describe 'the stores index page', type: :feature do
         
         expect(current_path).to eq("/stores/#{store.id}/edit")
       end
+
+    end
+    describe 'when I visit /stores and want to delete an entry' do
+      it 'has a delete button to the right of each store' do
+        visit '/stores/' 
+
+        expect(page).to have_link("Delete Store", href: "/stores/#{store_3.id}")
+      end
+
+      it 'returns me to store page where that store is no longer listed after click' do
+        visit '/stores/' 
+
+        click_link("Delete Store", href: "/stores/#{store_3.id}")
+
+        expect(current_path).to eq("/stores")
+        expect(page).to_not have_content("Pete's Grand Piano Emporium")
+      end
     end
   end
 end

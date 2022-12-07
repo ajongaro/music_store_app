@@ -1,6 +1,16 @@
 <h1>Instruments at <%= @store.name %></h1>
-Home > Stores > Instruments
-
+Home > Stores > Instruments<br>
+<p>
+<%= form_with url: "/stores/#{@store.id}/instruments?filter_price=true", method: :get, local: true do |form| %>
+  Only show instruments priced higher than:<br> 
+  <%= form.label :minimum_price %>
+  <%= form.number_field :minimum_price %>
+  <%= form.submit "Filter Results" %><br>
+<% end %>
+<p>
+<%= link_to "Alpha Sort", "/stores/#{@store.id}/instruments?alpha_sort=true" %>
+<%= link_to "Create Instrument", "/stores/#{@store.id}/instruments/new" %>
+</p>
 <% @instruments.each do |instrument| %>
   <h3><%= instrument.name %></h3>
   <ul>
@@ -9,5 +19,3 @@ Home > Stores > Instruments
     <li>Price: $<%= instrument.price %></li>
   </ul>
 <% end %>
-<%= link_to "Alpha Sort", "/stores/#{@store.id}/instruments?alpha_sort=true" %>
-<%= link_to "Create Instrument", "/stores/#{@store.id}/instruments/new" %>

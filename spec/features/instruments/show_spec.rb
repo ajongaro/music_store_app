@@ -49,6 +49,23 @@ RSpec.describe 'the instrument show page', type: :feature do
         expect(page).to have_content("Schteinway Frand Ipano")
         expect(page).to have_content("Price: $84999")
       end
+
+      it "has a link to 'Delete Instrument'" do
+        visit "/instruments/#{guitar.id}"
+
+        expect(page).to have_link("Delete Instrument")
+      end
+
+      it "removes an existing entry when delete instrument is clicked" do
+        visit "/instruments/"
+        expect(page).to have_content("Gibson Dot Guitar")
+
+        visit "/instruments/#{guitar.id}"
+
+        click_link("Delete Instrument")
+        expect(current_path).to eq("/instruments")
+        expect(page).to_not have_content("Gibson Dot Guitar")
+      end
     end
   end
 end

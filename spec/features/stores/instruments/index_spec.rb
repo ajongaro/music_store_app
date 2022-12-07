@@ -75,5 +75,34 @@ RSpec.describe ' stores index page', type: :feature do
         expect("Bosendorfer Grand Piano").to appear_before("Fender Banjo")
       end
     end
+    
+    describe "when I want to only show results over a given amount" do
+      it "shows a form that allows me to input a number value" do
+        visit "/stores/#{store.id}/instruments"
+
+        expect(page).to have_field(:minimum_price)
+      end
+
+      it "returns to stores/:id/instruments page after button is clicked" do
+        visit "/stores/#{store.id}/instruments"
+        
+        fill_in("Minimum price", with: 2000)
+        click_button("Filter Results")
+
+        expect(current_path).to eq("/stores/#{store.id}/instruments")
+      end
+
+      it "does not show instruments with prices lower than $2000" do
+        visit "/stores/#{store.id}/instruments"
+        expect(page).to have_content("Gibson Dot Guitar")
+        
+        fill_in("Minimum price", with: 2000)
+        click_button("Filter Results")
+
+        expect(current_path).to eq("/stores/#{store.id}/instruments")
+        expect(page).to_not have_content("Gibson Dot Guitar")
+        expect(page).to have_content("Steinway Grand Piano")
+      end
+    end
   end
 end

@@ -14,6 +14,12 @@ class InstrumentsController < ApplicationController
     redirect_to "/instruments/#{params[:id]}/"
   end
 
+  def delete 
+    @instrument = Instrument.find(params[:id])
+    @instrument.destroy
+    redirect_to "/instruments"
+  end
+
   def show
     @instrument = Instrument.find(params[:id])
   end

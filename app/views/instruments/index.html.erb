@@ -7,6 +7,9 @@
     <li>Used: <%= instrument.used %></li>
     <li>Needs Repair: <%= instrument.needs_repair %></li>
     <li>Price: $<%= instrument.price %></li>
-    <li><%= link_to "Edit Instrument", "/instruments/#{instrument.id}/edit" %></li>
   </ul>
+  <p>
+    <%= link_to "Edit Instrument", "/instruments/#{instrument.id}/edit" %><br>
+    <%= link_to "Delete Instrument", "/instruments/#{instrument.id}", method: :delete %>
+  </p>
 <% end %>

@@ -44,5 +44,24 @@ RSpec.describe 'the instrument index page', type: :feature do
         expect(current_path).to eq("/instruments/#{keytar.id}/edit")
       end
     end
+
+    describe 'when I visit /instruments and want to delete an entry' do
+      it 'has a delete button to the right of each instrument' do
+        visit '/instruments' 
+
+        expect(page).to have_link("Delete Instrument", href: "/instruments/#{guitar.id}")
+      end
+
+      it 'returns me to store page where that store is no longer listed after click' do
+        visit '/instruments/' 
+
+        expect(page).to have_content("Gibson Dot Guitar")
+
+        click_link("Delete Instrument", href: "/instruments/#{guitar.id}")
+
+        expect(current_path).to eq("/instruments")
+        expect(page).to_not have_content("Gibson Dot Guitar")
+      end
+    end
   end
 end
