@@ -6,6 +6,6 @@ class Instrument < ApplicationRecord
   end
 
   def self.filter_price(minimum_price)
-    self.all.where("price > #{minimum_price}")
+    where("price > #{minimum_price}")
   end
 end

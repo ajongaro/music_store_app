@@ -1,24 +1,17 @@
-# README
+# Music Store App 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Music Store App! The simplest way to manage your new and used instrument sales at your music store. Post your store, update information, and create new instruments for sale or remove listings when inventory changes.
 
-Things you may want to cover:
+Built with:
+* Rails 5.2.8
+* PostgreSQL
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Using Gems:
+* 'pry'
+* 'rspec-rails'
+* 'capybara'
+* 'launchy'
+* 'simplecov'
+* 'shoulda-matchers'
+* 'orderly'
+* 'faker'
